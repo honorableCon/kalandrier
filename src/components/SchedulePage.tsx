@@ -2,6 +2,7 @@
 
 import { RAMADAN_SCHEDULE, RAMADAN_START, getCurrentRamadanDay } from "@/lib/ramadanData";
 import Link from "next/link";
+import { ArrowLeft, Moon, Sunset, ChevronRight } from "lucide-react";
 
 export default function SchedulePage() {
   const currentDay = getCurrentRamadanDay();
@@ -32,8 +33,11 @@ export default function SchedulePage() {
           border: "1px solid rgba(200,168,68,0.4)",
           padding: "8px 16px",
           borderRadius: 20,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
         }}>
-          ← AUJOURD'HUI
+          <ArrowLeft size={14} /> AUJOURD'HUI
         </Link>
       </div>
 
@@ -41,19 +45,54 @@ export default function SchedulePage() {
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead>
             <tr>
-              {["JOUR", "DATE", "FIN XEUD 🌙", "DOGG 🌅"].map((h) => (
-                <th key={h} style={{
-                  fontFamily: "'Cinzel', serif",
-                  fontSize: 11,
-                  color: "#c8a844",
-                  letterSpacing: 3,
-                  padding: "12px 16px",
-                  textAlign: "center",
-                  borderBottom: "1px solid rgba(200,168,68,0.2)",
-                }}>
-                  {h}
-                </th>
-              ))}
+              <th style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: 11,
+                color: "#c8a844",
+                letterSpacing: 3,
+                padding: "12px 16px",
+                textAlign: "center",
+                borderBottom: "1px solid rgba(200,168,68,0.2)",
+              }}>
+                JOUR
+              </th>
+              <th style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: 11,
+                color: "#c8a844",
+                letterSpacing: 3,
+                padding: "12px 16px",
+                textAlign: "center",
+                borderBottom: "1px solid rgba(200,168,68,0.2)",
+              }}>
+                DATE
+              </th>
+              <th style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: 11,
+                color: "#c8a844",
+                letterSpacing: 3,
+                padding: "12px 16px",
+                textAlign: "center",
+                borderBottom: "1px solid rgba(200,168,68,0.2)",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
+                  FIN XEUD <Moon size={12} />
+                </div>
+              </th>
+              <th style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: 11,
+                color: "#c8a844",
+                letterSpacing: 3,
+                padding: "12px 16px",
+                textAlign: "center",
+                borderBottom: "1px solid rgba(200,168,68,0.2)",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
+                  DOGG <Sunset size={12} />
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -81,9 +120,13 @@ export default function SchedulePage() {
                       fontSize: isCurrent ? 18 : 15,
                       fontWeight: isCurrent ? 700 : 400,
                       color: isCurrent ? "#f0d264" : "#fff",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 4,
                     }}>
                       {String(row.day).padStart(2, "0")}
-                      {isCurrent && <span style={{ fontSize: 10, marginLeft: 4 }}>◀</span>}
+                      {isCurrent && <ChevronRight size={14} />}
                     </span>
                   </td>
                   <td style={{

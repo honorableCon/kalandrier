@@ -4,6 +4,7 @@ import Countdown from "@/components/Countdown";
 import Moon from "@/components/Moon";
 import MosqueSilhouette from "@/components/MosqueSilhouette";
 import Link from "next/link";
+import { Calendar, Heart } from "lucide-react";
 
 // Revalidate every hour to ensure fresh data at midnight
 export const revalidate = 3600;
@@ -46,9 +47,12 @@ export default function Home() {
             borderRadius: 20,
             backdropFilter: "blur(10px)",
             background: "rgba(0,0,0,0.3)",
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
           }}
         >
-          📅 CALENDRIER
+          <Calendar size={14} /> CALENDRIER
         </Link>
       </nav>
 
@@ -85,8 +89,12 @@ export default function Home() {
               fontSize: 24,
               color: "rgba(200,168,68,0.8)",
               marginBottom: 32,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
             }}>
-              Que Allah accepte votre jeûne 🤲
+              Que Allah accepte votre jeûne <Heart size={20} />
             </p>
             <p style={{
               fontFamily: "'Cinzel', serif",

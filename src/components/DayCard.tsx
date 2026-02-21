@@ -2,6 +2,8 @@
 
 import { RamadanDay, RAMADAN_START } from "@/lib/ramadanData";
 import LiveTimer from "./LiveTimer";
+import { Moon, Sunset, MapPin, Heart } from "lucide-react";
+import React from "react";
 
 interface DayCardProps {
   dayData: RamadanDay;
@@ -24,7 +26,7 @@ function TimeCard({
   time,
   timerLabel,
 }: {
-  icon: string;
+  icon: React.ReactNode;
   labelFr: string;
   labelAr: string;
   time: string;
@@ -53,7 +55,7 @@ function TimeCard({
         background: "linear-gradient(90deg, transparent, #c8a844, transparent)",
       }} />
 
-      <div style={{ fontSize: 40, marginBottom: 12 }}>{icon}</div>
+      <div style={{ display: "flex", justifyContent: "center", marginBottom: 12 }}>{icon}</div>
 
       <div style={{
         fontFamily: "'Amiri', serif",
@@ -234,14 +236,14 @@ export default function DayCard({ dayData }: DayCardProps) {
         marginBottom: 32,
       }}>
         <TimeCard
-          icon="🌙"
+          icon={<Moon size={40} color="#c8a844" />}
           labelFr="Fin Xeud"
           labelAr="الفجر"
           time={dayData.finXeud}
           timerLabel="Xeud"
         />
         <TimeCard
-          icon="🌅"
+          icon={<Sunset size={40} color="#c8a844" />}
           labelFr="Dogg"
           labelAr="الإفطار"
           time={dayData.dogg}
@@ -296,7 +298,7 @@ export default function DayCard({ dayData }: DayCardProps) {
         textTransform: "uppercase",
         marginBottom: 12,
       }}>
-        📍 <span style={{ color: "rgba(200,168,68,0.7)" }}>Dakar</span> · Sénégal
+        <MapPin size={16} /> <span style={{ color: "rgba(200,168,68,0.7)" }}>Dakar</span> · Sénégal
       </div>
 
       <div style={{
@@ -306,8 +308,12 @@ export default function DayCard({ dayData }: DayCardProps) {
         textAlign: "center",
         fontStyle: "italic",
         textShadow: "0 0 20px rgba(200,168,68,0.3)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 12,
       }}>
-        Bon Ramadan Moubarak 🤲
+        Bon Ramadan Moubarak <Heart size={24} />
       </div>
     </div>
   );

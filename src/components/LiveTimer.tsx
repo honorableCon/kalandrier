@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Check, Timer } from "lucide-react";
 
 interface LiveTimerProps {
   targetTime: string; // "HH:MM" format
@@ -49,15 +50,20 @@ export default function LiveTimer({ targetTime, label }: LiveTimerProps) {
         ? "rgba(255,100,100,0.1)"
         : "rgba(200,168,68,0.15)",
       border: `1px solid ${isPast ? "rgba(255,100,100,0.3)" : "rgba(200,168,68,0.4)"}`,
-      display: "inline-block",
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6,
     }}>
       <span style={{
         fontFamily: "'Cinzel', serif",
         fontSize: 13,
         color: isPast ? "#ff8888" : "#f0d264",
         letterSpacing: 1,
+        display: "flex",
+        alignItems: "center",
+        gap: 6,
       }}>
-        {isPast ? "✓" : "⏱"} {label} {isPast ? "" : `dans ${timeLeft}`}
+        {isPast ? <Check size={14} /> : <Timer size={14} />} {label} {isPast ? "" : `dans ${timeLeft}`}
       </span>
     </div>
   );

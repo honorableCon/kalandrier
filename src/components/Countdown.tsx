@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { RAMADAN_START } from "@/lib/ramadanData";
+import { MapPin } from "lucide-react";
 
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -109,8 +110,12 @@ export default function Countdown() {
         fontSize: 14,
         letterSpacing: 3,
         fontFamily: "'Cinzel', serif",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 8,
       }}>
-        📍 DAKAR · SÉNÉGAL · 19 FÉVRIER 2026
+        <MapPin size={14} /> DAKAR · SÉNÉGAL · 19 FÉVRIER 2026
       </div>
     </div>
   );
