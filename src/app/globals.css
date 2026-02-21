@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;700;900&display=swap');
+
+:root {
+  --gold: #c8a844;
+  --gold-light: #f0d264;
+  --gold-dim: #8b6914;
+  --bg-dark: #0a0a14;
+  --bg-mid: #0d1a2e;
+  --white: #ffffff;
+  --white-dim: #c8c8d8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Amiri', serif;
+  background: var(--bg-dark);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ---- Stars background ---- */
+.stars-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 8% 12%, #fff, transparent),
+    radial-gradient(1px 1px at 22% 6%, #fff, transparent),
+    radial-gradient(2px 2px at 38% 18%, #ffd700, transparent),
+    radial-gradient(1px 1px at 52% 4%, #fff, transparent),
+    radial-gradient(1px 1px at 67% 10%, #fff, transparent),
+    radial-gradient(2px 2px at 83% 16%, #ffd700, transparent),
+    radial-gradient(1px 1px at 12% 28%, #fff, transparent),
+    radial-gradient(1px 1px at 88% 32%, #fff, transparent),
+    radial-gradient(1px 1px at 4%  48%, #fff, transparent),
+    radial-gradient(1px 1px at 93% 55%, #fff, transparent),
+    radial-gradient(1px 1px at 28% 82%, #fff, transparent),
+    radial-gradient(1px 1px at 58% 88%, #fff, transparent),
+    radial-gradient(2px 2px at 74% 72%, #ffd700, transparent),
+    radial-gradient(1px 1px at 44% 68%, #fff, transparent),
+    radial-gradient(1px 1px at 16% 60%, #fff, transparent),
+    radial-gradient(1px 1px at 77% 44%, #fff, transparent),
+    radial-gradient(2px 2px at 35% 38%, #ffd700, transparent),
+    radial-gradient(1px 1px at 61% 25%, #fff, transparent),
+    radial-gradient(1px 1px at 91% 78%, #fff, transparent),
+    radial-gradient(1px 1px at 3%  90%, #fff, transparent);
+}
+
+/* ---- Moon animation ---- */
+@keyframes moonGlow {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(240, 210, 80, 0.4)); }
+  50%       { filter: drop-shadow(0 0 50px rgba(240, 210, 80, 0.8)); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(200,168,68,0.2), 0 0 60px rgba(200,168,68,0.3); }
+  50%       { box-shadow: 0 0 0 12px rgba(200,168,68,0.3), 0 0 100px rgba(200,168,68,0.5); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes countdownPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.05); }
+}
+
+/* ---- Shared layout ---- */
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  z-index: 1;
+}
+
+/* ---- Gradient overlay ---- */
+.gradient-bg {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(160deg, #0d1a2e 0%, #0a0a14 40%, #1a0d1a 100%);
+  z-index: -1;
+}
